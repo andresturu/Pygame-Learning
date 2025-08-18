@@ -21,24 +21,12 @@ clock = pygame.time.Clock()
 test_font = pygame.font.Font('font/Pixeltype.ttf', 50)#first argument font type, second argument font size
 
 '''
-sky_surface = pygame.image.load('graphics/sky.jpg') #directs to an image inside the folder 'Pygame-Learning'ground_surface = pygame.image.load('graphics/ground.jpg') #image is convereted into surface object 537 x 200
-ground_surface = pygame.image.load('graphics/ground.jpg')
+sky_surface = pygame.image.load('graphics/background_sky.jpg') #directs to an image inside the folder 'Pygame-Learning'ground_surface = pygame.image.load('graphics/ground.jpg') #image is convereted into surface object 537 x 200
+ground_surface = pygame.image.load('graphics/background_ground.jpg')
 '''
 
-def load_and_scale_image(path): #load image, scale surface to fill screen width while maintaining aspect ratio, return new surface
-    surface = pygame.image.load(path)
-    new_width, new_height = scale_by_width(surface)
-    return pygame.transform.scale(surface, (new_width, new_height))
-
-def scale_by_width(surface):   #scale surface to fill screen width while maintaining aspect ratio
-    og_width, og_height = surface.get_size()
-    scale_w = screen_width/og_width
-    new_width = og_width *scale_w
-    new_height = og_height *scale_w
-    return new_width, new_height
-
-sky_surface = load_and_scale_image('graphics/sky.jpg') #elegant way of creating a surface, and scaling it simultaneously using functions
-ground_surface = load_and_scale_image('graphics/ground.jpg') #this is not the syntax for loading in an image!! See above for actual syntax
+sky_surface = load_and_scale_image('graphics/background_sky.jpg', screen_width) #elegant way of creating a surface, and scaling it simultaneously using functions
+ground_surface = load_and_scale_image('graphics/background_ground.jpg', screen_width) #this is not the syntax for loading in an image!! See above for actual syntax
 text_surface = test_font.render('My game', False, 'Black')#creates text surface, second parameter is to smooth the text out
 
 
