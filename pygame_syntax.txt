@@ -1,0 +1,58 @@
+#creating a surface from an image, use .convert_alpha() though
+image = pygame.image.load('path')
+
+#convert into image that python runs faster
+image = pygame.image.load('path).convert_alpha() #the _alpha part retains alpha transparency of the image
+
+#resizing surfaces/images to any dimension you want
+pygame.transform.scale(surface, (new_width, new_height))
+
+------------------------------------------------------------------------------------------------------------------
+#set a name for game window
+pygame.display.set_caption('My fun game')
+
+#create a font. First argument is the path to the file, second is font size
+font = pygame.font.Font('path', size)       ex -> test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
+
+#create a text surface with previously created font. First argument is text to be displayed, second is smooth text?, third is color
+ex->  score_surf = test_font.render('My game', False, 'Black')
+
+------------------------------------------------------------------------------------------------------------------
+#returns tuple of (width, height) of given surface
+surface.get_size()
+
+#return x and y position of mouse
+mouse_pos = pygame.mouse.get_pos()
+
+#returns tuple of boolean values for left, middle, and right click
+pygame.mouse.get_pressed()  -> (False, False, True)
+
+------------------------------------------------------------------------------------------------------------------
+#create Rect object that stores coordinate and dimensions, and adjusts the specified position attribute to the coordinate tuple
+surface.get_rect(positionattribute = (x,y))
+
+#check for collision of two rectangles, returns True or False
+rect_1.colliderect(rect_2)
+
+#check for collision of rectange and a point, often the point can be the mouse coordinates
+rect_1.collidepoint((x,y)) or rec_1.coolidepoint(mouse_pos)
+
+-------------------------------------------------------------------------------------------------------------------
+#create clock
+clock = pygame.time.Clock()
+
+#set maximum frame rate
+clock.tick(60) #while loop runs no faster than 60 times per second
+
+-------------------------------------------------------------------------------------------------------------------
+#loop through every event that occured since last called
+#event types have different attributes 
+#for example the MOUSEMOTION event has event.pos which gives mouse coordinates of the click
+
+for event in pygame.event.get():
+    if event.type == pygame.MOUSEBUTTONDOWN:    
+        if event.button == 1:
+            print('left click')
+        if event.button ==3:
+            print('right click')
+--------------------------------------------------------------------------------------------------------------------      

@@ -1,0 +1,35 @@
+'''
+
+-Didn't set a minimum frame rate because game is very simple, not very demanding on computer
+- Surfaces:
+    -Display Surface(the game window. Anything displayed goes on here)
+        -Must be unique, must always be visible
+    -(Regular) Surface(essentially a single image)
+        -Needs to be on display surface to be visible
+        -Flexible amount, only displayed when connected to display surface 
+
+
+if event.type == pygame.KEYDOWN:
+    if event.key == pygame.K_RIGHT:
+        player_rect.left +=1
+    if event.key == pygame.K_LEFT:
+        player_rect.left -=1
+    if event.key == pygame.K_UP:
+        player_rect.top -=1
+    if event.key == pygame.K_DOWN:
+        player_rect.top +=1
+
+sky_surface = pygame.image.load('graphics/background_sky.jpg') #directs to an image inside the folder 'Pygame-Learning'ground_surface = pygame.image.load('graphics/ground.jpg') #image is convereted into surface object 537 x 200
+ground_surface = pygame.image.load('graphics/background_ground.jpg')
+
+
+test_surface = pygame.Surface((100, 200)) #creates a (regular) surface
+test_surface.fill('Red')
+
+
+
+
+
+
+'''
+
