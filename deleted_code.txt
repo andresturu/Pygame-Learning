@@ -8,6 +8,23 @@
         -Needs to be on display surface to be visible
         -Flexible amount, only displayed when connected to display surface 
 
+player_stand = pygame.transform.scale2x(player_stand) #scales the surface to be twice as large, maintaining aspect ratio
+
+
+
+pygame.draw.line(screen, 'Black', (0,0), pygame.mouse.get_pos(), 20)
+pygame.draw.ellipse(screen, 'Brown', pygame.Rect(50,200, 100, 100))
+
+ if player_rect.colliderect(snail_rect): #returns true or false
+        print('collision')
+    mouse_pos = pygame.mouse.get_pos() #returns x and y position
+    if player_rect.collidepoint(mouse_pos):
+        print(pygame.mouse.get_pressed()) #returns tuple of boolean values for left click, middle click, and right click
+
+if event.type == pygame.MOUSEMOTION: 
+    print(event.pos)
+    if player_rect.collidepoint(event.pos):
+        print('player x mouse collision')
 
 if event.type == pygame.KEYDOWN:
     if event.key == pygame.K_RIGHT:
@@ -26,7 +43,18 @@ ground_surface = pygame.image.load('graphics/background_ground.jpg')
 test_surface = pygame.Surface((100, 200)) #creates a (regular) surface
 test_surface.fill('Red')
 
+if event.type == pygame.KEYUP:
+    print('key up')
 
+ keys = pygame.key.get_pressed() #alternate method to check for key press rather than through an event
+    if keys[pygame.K_SPACE]:        #this method is useful when using classes
+        print('jump')
+
+if event.button ==3:
+    print('right click')
+
+if event.type == pygame.MOUSEBUTTONUP:
+    print('mouse up')
 
 
 
