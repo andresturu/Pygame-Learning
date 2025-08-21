@@ -8,8 +8,22 @@
         -Needs to be on display surface to be visible
         -Flexible amount, only displayed when connected to display surface 
 
+for obstacle_rect in obstacle_rect_list:  
+    if obstacle_rect.colliderect(player_rect):
+        game_active = False
+
 player_stand = pygame.transform.scale2x(player_stand) #scales the surface to be twice as large, maintaining aspect ratio
 
+temp_obstacle_rect_list = [] #this entire block of code is the same as   obstacle_rect_list = [obstacle for obstacle in obstacle_rect_list if obstacle.x >0]
+for obstacle_rect in obstacle_rect_list:
+    if obstacle_rect.x >0:
+        temp_obstacle_rect_list.append(obstacle_rect)
+obstacle_rect_list = temp_obstacle_rect_list
+
+snail_rect = snail_surf.get_rect(bottomright = (600,300)) #Rect object stores coordinates and dimensions, NOT the image data(pixels, etc..)
+
+score_surf = test_font.render('My game', False, (64,64,64))#creates text surface, second parameter is to smooth the text out, third is color (I used rgb tuple for this)
+score_rect = score_surf.get_rect(center = (400, 50) )
 
 
 pygame.draw.line(screen, 'Black', (0,0), pygame.mouse.get_pos(), 20)
